@@ -623,10 +623,13 @@
 
 
             // --- 2. Gemini API Utilities (Integrated with Environment Key) ---
-            
-            const GEMINI_MODEL = "gemini-2.5-flash-preview-09-2025";
-            const API_KEY = typeof __api_key !== 'undefined' ? __api_key : ''; 
-            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${API_KEY}`;
+            // --- 2. Gemini API Utilities (Integrated with Environment Key) ---
+
+const GEMINI_MODEL = "gemini-2.5-flash-preview-09-2025";
+// --- FIX: Replace 'YOUR_ACTUAL_GEMINI_API_KEY_HERE' with your real key ---
+const API_KEY = 'AIzaSyBjxFmqV8LEw2zvNq4AjW_5tNKddrG_dFM'; 
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${API_KEY}`;
+// ... rest of the function (callGeminiApi) ...
             
             async function callGeminiApi(payload, retries = 0) {
                 const maxRetries = 3;
