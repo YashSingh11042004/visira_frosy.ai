@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>VishIRAFrosy.ai — Global Leadership in AI, Decentralization, and Enterprise Software</title>
+
+    <!--
+    ================================================================================
+    [1] EXTERNAL LIBRARIES (Bootstrap, Icons, AOS)
+    ================================================================================
+    -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!--
+    ================================================================================
+    [2] TIER 1 CORPORATE STYLES (Clean, Professional, No Dark Mode)
+    ================================================================================
+    -->
+    <style>
+        :root {
+            /* T1 Corporate Palette: Clean, Vibrant Blue */
+            --primary-color: #1967d2; /* Vibrant Corporate Blue (Action/Focus) */
+            --primary-hover: #1355b2; 
+            --accent-color: #34a853; /* Success/Growth Green */
+            --background: #ffffff;
+            --surface: #f8f9fa; /* Very Light Gray Surface */
+            --text-main: #202124;
+            --text-secondary: #5f6368;
+            --section-padding: 80px 0;
+            --shadow-corporate: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* --- Global Base Styles (Light Theme Only) --- */
+        body {
+            background-color: var(--background);
+            color: var(--text-main);
+            font-family: 'Inter', Arial, sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* --- Navbar Detail --- */
+        .navbar {
+            background-color: var(--background);
+            border-bottom: 1px solid #e9ecef;
+            box-shadow: var(--shadow-corporate);
+            transition: transform 0.3s ease-out, box-shadow 0.3s;
+            padding: 0.75rem 0;
+        }
+        
+        .nav-hidden {
+            transform: translateY(-100%);
+            box-shadow: none !important;
+        }
+        
+        .navbar-brand {
+             color: var(--primary-color);
+             font-weight: 800;
+             letter-spacing: -0.5px;
+             font-size: 1.75rem;
+        }
+        
+        .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            transition: color 0.2s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link.active {
+            color: var(--primary-color) !important;
+            font-weight: 600;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30%;
+            height: 2px;
+            background-color: var(--primary-color);
+            border-radius: 1px;
+            transition: width 0.3s, left 0.3s;
+        }
+        
+        /* Apply Button Styling */
+        .btn-apply-now {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 0.5rem 1.5rem;
+            border-radius: 999px;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        .btn-apply-now:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            padding: 100px 0;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--background);
+        }
+        
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.1; 
+            transition: opacity 0.4s;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 900;
+            color: var(--text-main);
+        }
+        
+        .hero .short-mission {
+            font-weight: 500;
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: var(--primary-color); 
+            margin-top: 1.5rem;
+        }
+        
+        /* General Sections */
+        section {
+            padding: var(--section-padding);
+        }
+        
+        section:nth-of-type(odd) {
+            background-color: var(--surface);
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+        }
+
+        /* --- Card Animation Styles --- */
+        .feature-card, .usecase-card, .metric-card, .internship-card {
+            background-color: var(--background);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-corporate);
+            height: 100%;
+            /* Added smooth transitions for transform and shadow */
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s ease; 
+            border-left: 5px solid var(--primary-color); /* Strong accent line */
+        }
+        
+        .internship-card {
+            border-left-width: 3px;
+            border-color: var(--text-secondary); /* Subtler default border */
+        }
+        
+        .internship-card.card-featured {
+            border-color: var(--accent-color); /* Highlight for AI generator */
+            box-shadow: 0 4px 20px rgba(52, 168, 83, 0.3); /* Green shadow for emphasis */
+        }
+        
+        /* Animation: Lift and Shadow change on hover */
+        .feature-card:hover, .usecase-card:hover, .metric-card:hover, .internship-card:hover {
+            transform: translateY(-5px) scale(1.01); /* More noticeable lift and subtle scale */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18); /* Stronger shadow on hover */
+        }
+
+        .feature-card i, .usecase-card i, .internship-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color); 
+        }
+        
+        .internship-card.card-featured i {
+            color: var(--accent-color);
+        }
+        
+        /* LLM Output Specific Styles */
+        .llm-output-card {
+            background-color: #e3f2fd; /* Light blue background for emphasis */
+            border: 1px solid #bbdefb;
+            padding: 1.5rem;
+            border-radius: 8px;
+            white-space: pre-wrap;
+            text-align: left;
+            transition: background-color 0.4s;
+        }
+
+        .llm-output-card pre {
+            font-family: 'Inter', monospace;
+            font-size: 0.9rem;
+            margin: 0;
+            color: var(--text-main);
+            background: transparent;
+            border: none;
+            padding: 0;
+            white-space: pre-wrap;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <!--
+    ================================================================================
+    [3] NAVIGATION BAR (Clean T1 Corporate Design)
+    ================================================================================
+    -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- UPDATED COMPANY NAME IN NAVBAR -->
+            <a class="navbar-brand me-auto" href="#hero">VishIRAFrosy.ai</a>
+            
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#features" data-section="features">Capabilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#technology" data-section="technology">Architecture</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#usecases" data-section="usecases">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#internships" data-section="internships">Internships</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://in.linkedin.com/company/vishirafrosy-ai?trk=public_post_feed-actor-image" data-section="internships">ContactUs</a></li>
+                    
+                </ul>
+            </div>
+            
+            <!-- Dedicated Apply Button -->
+            <div class="d-flex align-items-center">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe7tBjJQjxlD1AcBiJQiLj8TXVLmKi26JMgUPGD5GVD1a1D7g/viewform?usp=header" 
+                   target="_blank" 
+                   class="btn btn-apply-now d-none d-lg-block">
+                    <i class="bi bi-box-arrow-up-right me-1"></i> Apply Now
+                </a>
+            </div>
+            
+        </div>
+    </nav>
+
+    <!--
+    ================================================================================
+    [4] HERO SECTION (With Canvas Animation)
+    ================================================================================
+    -->
+    <section id="hero" class="hero">
+        <!-- Canvas for complex background animation -->
+        <canvas id="hero-canvas"></canvas>
+        
+        <div class="container hero-content">
+            <h1 class="fw-bold mb-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- UPDATED COMPANY NAME IN HERO -->
+                VishIRAFrosy.ai: The Enterprise OS for <span class="text-primary">AI</span> and <span class="text-primary">Decentralized</span> Scale
+            </h1>
+            <p class="lead short-mission" data-aos="fade-up" data-aos-delay="200">
+                Engineered by Senior Architects from Tier 1 technology firms, specializing in high-throughput, mission-critical systems.
+            </p>
+            <p class="lead mb-5 text-secondary" data-aos="fade-up" data-aos-delay="300">
+                We deliver ultra-secure, immutable platforms blending predictive analytics with zero-knowledge data integrity.
+            </p>
+            <a href="#features" class="btn btn-primary btn-lg rounded-pill px-5" data-aos="zoom-in" data-aos-delay="400">View Technical Specifications</a>
+        </div>
+    </section>
+    
+    <!--
+    ================================================================================
+    [5] FEATURES SECTION (Core Offerings)
+    ================================================================================
+    -->
+    <section id="features" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Core Platform Capabilities</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="feature-card">
+                        <i class="bi bi-cpu"></i>
+                        <h5 class="fw-bold text-main">AI Signal Processing</h5>
+                        <p class="text-secondary small">Low-latency LLMs and custom ML models optimized for high-volume real-time data streams and predictive execution.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <i class="bi bi-layers"></i>
+                        <h5 class="fw-bold text-main">Decentralized Layer 2 Scaling</h5>
+                        <p class="text-secondary small">Proprietary scaling solutions ensuring enterprise-grade transaction throughput and massive data volume handling without compromise.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <i class="bi bi-fingerprint"></i>
+                        <h5 class="fw-bold text-main">Zero-Knowledge Security</h5>
+                        <p class="text-secondary small">Implementing ZK proofs for absolute data privacy, immutable integrity, and compliance with the most stringent global data standards.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--
+    ================================================================================
+    [6] TECHNOLOGY ARCHITECTURE VISUALIZATION
+    ================================================================================
+    -->
+    <section id="technology" class="bg-light">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Modular Architecture & Technical Commitment</h2>
+            <div class="p-4 rounded shadow-lg" style="background-color: var(--background);" data-aos="fade-up" data-aos-delay="100">
+                <h4 class="text-center text-primary mb-4 fw-bold">The VishIRAFrosy.ai Stack</h4>
+                <div class="row g-4 text-center">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="p-3 bg-light rounded shadow-sm h-100">
+                            <i class="bi bi-motherboard fs-3 text-primary"></i>
+                            <h6 class="mt-2 fw-bold text-main">Core Layer</h6>
+                            <p class="small text-secondary">Rust / GoLang / EVM (Solidity)</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="p-3 bg-light rounded shadow-sm h-100">
+                            <i class="bi bi-code-square fs-3 text-primary"></i>
+                            <h6 class="mt-2 fw-bold text-main">Integration Layer</h6>
+                            <p class="small text-secondary">TypeScript / gRPC / WebAssembly</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="p-3 bg-light rounded shadow-sm h-100">
+                            <i class="bi bi-robot fs-3 text-primary"></i>
+                            <h6 class="mt-2 fw-bold text-main">Intelligence Layer</h6>
+                            <p class="small text-secondary">PyTorch / TensorFlow / Custom LLMs</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="p-3 bg-light rounded shadow-sm h-100">
+                            <i class="bi bi-cloud-check fs-3 text-primary"></i>
+                            <h6 class="mt-2 fw-bold text-main">Deployment</h6>
+                            <p class="small text-secondary">Kubernetes / Terraform / CI/CD</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-4 text-center text-secondary small">
+                    This modular, high-integrity framework is designed for autonomous operation and real-time state synchronization across distributed environments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!--
+    ================================================================================
+    [7] USE CASES SECTION (Market Applications)
+    ================================================================================
+    -->
+    <section id="usecases" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Industry-Leading Solutions</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up">
+                    <div class="usecase-card">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h5 class="fw-bold text-main">Automated Financial Trading</h5>
+                        <p class="text-secondary small">Ultra-low latency execution and automated signal detection, ensuring regulatory compliance at microsecond speed.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="usecase-card">
+                        <i class="bi bi-hospital"></i>
+                        <h5 class="fw-bold text-main">Secure Healthcare Data Oracles</h5>
+                        <p class="text-secondary small">Managing highly sensitive patient data and ensuring immutable audit trails for drug supply chains and research compliance.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="usecase-card">
+                        <i class="bi bi-globe2"></i>
+                        <h5 class="fw-bold text-main">Global Decentralized Identity (DID)</h5>
+                        <p class="text-secondary small">Providing sovereign, auditable digital identities for large organizations, eliminating single points of failure in authentication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!--
+    ================================================================================
+    [8] INTERNSHIP FOCUS (Massive Role Expansion + LLM Feature 1)
+    ================================================================================
+    -->
+    <section id="internships" class="bg-light" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Senior Internship & Career Tracks</h2>
+            <p class="lead text-center mb-5 text-secondary">
+                Explore high-impact roles across our core technology and strategic business units. All roles involve working directly with senior T1 architects.
+            </p>
+            <div class="row g-4 mt-5">
+                
+                <!-- Role Card 1: MERN / Full-Stack -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="internship-card">
+                        <i class="bi bi-code-slash"></i>
+                        <h5 class="fw-bold text-main">MERN/MEAN/Full-Stack Dev</h5>
+                        <p class="text-secondary small">Building reactive enterprise dashboards and APIs for decentralized data consumption (Node.js, React, MongoDB/PostgreSQL).</p>
+                    </div>
+                </div>
+                
+                <!-- Role Card 2: ML/AI/Data Science -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="internship-card">
+                        <i class="bi bi-robot"></i>
+                        <h5 class="fw-bold text-main">ML / AI / Data Science</h5>
+                        <p class="text-secondary small">Optimizing LLM quantization, fine-tuning predictive models, and pipeline engineering (PyTorch, TensorFlow, MLOps).</p>
+                    </div>
+                </div>
+                
+                <!-- Role Card 3: Android / Mobile -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="internship-card">
+                        <i class="bi bi-phone"></i>
+                        <h5 class="fw-bold text-main">Mobile Development (Android/iOS)</h5>
+                        <p class="text-secondary small">Designing secure, high-performance mobile clients for accessing decentralized data and ZK identity services (Kotlin/Swift/React Native).</p>
+                    </div>
+                </div>
+                
+                <!-- Role Card 4: Cyber Security / ZK Audit -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up">
+                    <div class="internship-card">
+                        <i class="bi bi-shield-lock"></i>
+                        <h5 class="fw-bold text-main">Cybersecurity & Audit</h5>
+                        <p class="text-secondary small">Protocol review, smart contract auditing, penetration testing, and implementing zero-trust network architectures (Rust, Solidity, threat modeling).</p>
+                    </div>
+                </div>
+                
+                <!-- Role Card 5: Business Development Executive (BDE) -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="internship-card">
+                        <i class="bi bi-briefcase"></i>
+                        <h5 class="fw-bold text-main">Business Development Executive (BDE)</h5>
+                        <p class="text-secondary small">Market research, strategic partnership identification, and creating technical value propositions for CTOs and VPs across industries.</p>
+                    </div>
+                </div>
+                
+                <!-- Role Card 6: HR / Talent Acquisition -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="internship-card">
+                        <i class="bi bi-people"></i>
+                        <h5 class="fw-bold text-main">HR & Talent Acquisition</h5>
+                        <p class="text-secondary small">Sourcing top-tier engineering talent, optimizing candidate experience, and developing internal growth frameworks (HRIS, technical screening).</p>
+                    </div>
+                </div>
+
+                <!-- LLM Feature 1: Custom Path Generator (Featured Card) -->
+                <div class="col-12 mt-5" data-aos="fade-up">
+                    <div class="internship-card card-featured p-4 text-center">
+                        <h5 class="fw-bold mb-4" style="color: var(--accent-color);">
+                            <i class="bi bi-stars me-2"></i> Custom Senior Internship Path Generator (AI-Powered)
+                        </h5>
+                        <p class="text-secondary small">
+                            Define your unique tech blend (e.g., Rust and ZK Proofs) and let our AI mentor generate a specific, senior-level project idea and three-month milestones.
+                        </p>
+                        <div class="mb-3">
+                            <input type="text" class="form-control rounded-pill" id="techStackInput" placeholder="e.g., Rust, PyTorch, and ZK Proofs for Enterprise DIDs" required />
+                        </div>
+                        <button type="button" id="generatePathBtn" class="btn btn-success rounded-pill w-100 mb-3 fw-bold" style="background-color: var(--accent-color); border-color: var(--accent-color);">
+                            Generate Project & Learning Milestones
+                        </button>
+                        
+                        <div id="projectLoading" class="text-center d-none my-3">
+                            <div class="spinner-border text-primary spinner-border-sm" role="status"></div>
+                            <span class="ms-2 small text-secondary">Architecting customized path...</span>
+                        </div>
+
+                        <div id="projectOutput" class="llm-output-card mt-3 d-none text-start">
+                            <h6 class="fw-bold" style="color: var(--primary-color);">Generated Project Outline:</h6>
+                            <pre id="projectText" class="mb-0 small text-main"></pre>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--
+    ================================================================================
+    [9] CONTACT SECTION (LLM Feature 2: Executive Summary Refiner)
+    ================================================================================
+    -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-down">Strategic & Secure Inquiry</h2>
+            
+            <form class="mx-auto p-4 rounded shadow-lg bg-white" style="max-width: 600px;" data-aos="fade-up">
+                <p class="text-center mb-4 text-secondary"></p>
+                <div class="mb-3">
+                    <label for="nameInput" class="form-label">Full Name / Current Organization</label>
+                    <input type="text" class="form-control" id="nameInput"  required />
+                </div>
+                <div class="mb-3">
+                    <label for="emailInput" class="form-label">Enterprise Email</label>
+                    <input type="email" class="form-control" id="emailInput" required />
+                </div>
+                <div class="mb-4">
+                    <label for="messageInput" class="form-label">Proposal Summary (Draft your high-level challenge/solution)</label>
+                    <textarea class="form-control" id="messageInput" rows="4"  required></textarea>
+                    
+                    <!-- Executive Summary Refinement Button (LLM Feature 2) -->
+                    <button type="button" id="refineSummaryBtn" class="btn btn-outline-primary btn-sm mt-2 w-100 fw-bold rounded-pill">
+                        <i class="bi bi-magic me-1"></i> ✨ Refine to Executive Summary (AI Audit)
+                    </button>
+                    <div id="summaryLoading" class="text-center d-none mt-2">
+                        <div class="spinner-border text-secondary spinner-border-sm" role="status"></div>
+                        <span class="ms-2 small text-secondary">Analyzing and refining protocol...</span>
+                    </div>
+                </div>
+                
+                <div id="form-message" class="alert alert-info text-center d-none" role="alert"></div>
+
+                <button type="submit" id="submit-btn" class="btn btn-primary w-100 fw-bold rounded-pill">Submit Encrypted Proposal</button>
+            </form>
+            
+            <!-- NEW: Dedicated LinkedIn Link in Contact Section -->
+            <div class="text-center mt-4" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-secondary mb-2 small">Connect with our corporate team and view official announcements:</p>
+                <a href="https://in.linkedin.com/company/vishirafrosy-ai?trk=public_post_feed-actor-image" 
+                   target="_blank" 
+                   class="btn btn-outline-primary rounded-pill fw-bold">
+                    <i class="bi bi-linkedin me-2"></i> VishIRAFrosy.ai on LinkedIn
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
+    <!--
+    ================================================================================
+    [10] FOOTER 
+    ================================================================================
+    -->
+    <footer class="text-center py-4 border-top" style="background-color: var(--surface);">
+        <div class="container small text-secondary">
+            <!-- UPDATED COMPANY NAME IN FOOTER -->
+            <p class="mb-1">VishIRAFrosy.ai — Building Trust in Decentralized Intelligence.</p>
+            <a href="#" class="text-secondary mx-2">Privacy Policy</a> | 
+            <a href="#" class="text-secondary mx-2">Terms of Service</a> | 
+            <!-- Careers Portal now links directly to the LinkedIn page -->
+            <a href="https://in.linkedin.com/company/vishirafrosy-ai?trk=public_post_feed-actor-image" target="_blank" class="text-secondary mx-2">Careers Portal</a> 
+            <p class="mt-2 small">© 2024 VishIRAFrosy.ai. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!--
+    ================================================================================
+    [11] JAVASCRIPT LOGIC BLOCK (LLM, Navigation, and Complex Canvas Animation)
+    ================================================================================
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        /**
+         * The Core Application Module (IIFE - Immediately Invoked Function Expression)
+         */
+        (function() {
+            "use strict";
+
+            // --- 1. Global Constants and DOM Variables ---
+
+            const NAVBAR_HEIGHT = 70; 
+            const SCROLL_DURATION = 800;
+            const body = document.body;
+            const navbar = document.querySelector('.navbar');
+            let lastScrollY = 0;
+
+            const navLinks = document.querySelectorAll('.navbar-collapse .nav-link[href^="#"]');
+            const sections = [];
+            
+            // LLM & Form Elements
+            const formMessage = document.getElementById('form-message');
+            const messageInput = document.getElementById('messageInput');
+            const refineSummaryBtn = document.getElementById('refineSummaryBtn');
+            const summaryLoading = document.getElementById('summaryLoading');
+            const techStackInput = document.getElementById('techStackInput');
+            const generatePathBtn = document.getElementById('generatePathBtn');
+            const projectOutput = document.getElementById('projectOutput');
+            const projectText = document.getElementById('projectText');
+            const projectLoading = document.getElementById('projectLoading');
+            
+            // Collect all sections for scroll tracking
+            navLinks.forEach(link => {
+                const targetId = link.getAttribute('href').substring(1);
+                const section = document.getElementById(targetId);
+                if (section) {
+                    sections.push({
+                        element: section,
+                        link: link,
+                        id: targetId
+                    });
+                }
+            });
+
+
+            // --- 2. Gemini API Utilities (Integrated with Environment Key) ---
+            
+            const GEMINI_MODEL = "gemini-2.5-flash-preview-09-2025";
+            const API_KEY = typeof __api_key !== 'undefined' ? __api_key : ''; 
+            const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${API_KEY}`;
+            
+            async function callGeminiApi(payload, retries = 0) {
+                const maxRetries = 3;
+                const delay = Math.pow(2, retries) * 1000;
+                
+                if (!API_KEY) {
+                     throw new Error("API Key is not defined. Cannot call Gemini API.");
+                }
+
+                try {
+                    if (retries > 0) {
+                        await new Promise(resolve => setTimeout(resolve, delay));
+                    }
+
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        const errorBody = await response.json().catch(() => ({}));
+                        throw new Error(`HTTP error! status: ${response.status} - ${errorBody.error?.message || 'Unknown error'}`);
+                    }
+
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    if (!text) {
+                        throw new Error("Received empty content or unexpected response structure from API.");
+                    }
+                    
+                    return text.trim();
+
+                } catch (error) {
+                    if (retries < maxRetries) {
+                        return callGeminiApi(payload, retries + 1); 
+                    } else {
+                        throw new Error(`Gemini API failed after ${maxRetries} retries: ${error.message}`);
+                    }
+                }
+            }
+
+            // --- 3. LLM Feature Logic ---
+            
+            // LLM Feature 2: Executive Summary Refiner
+            refineSummaryBtn.addEventListener('click', async () => {
+                const briefSummary = messageInput.value.trim();
+
+                if (briefSummary.length < 30) {
+                    showMessage('Please enter a brief summary (at least 30 characters) for the AI to audit.', 'alert-warning', formMessage);
+                    return;
+                }
+
+                refineSummaryBtn.disabled = true;
+                refineSummaryBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Analyzing...';
+                summaryLoading.classList.remove('d-none');
+                
+                const systemPrompt = "You are a senior tech analyst. Take the user's brief summary and refine it into a concise, formal executive summary of max 150 words. Focus on the value proposition, security implications, and enterprise architecture relevance. Maintain a serious, T1 professional tone, suitable for a CTO.";
+                const userQuery = `Refine this high-level partnership proposal summary for an executive audience: "${briefSummary}"`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+
+                try {
+                    const refinedText = await callGeminiApi(payload);
+                    messageInput.value = refinedText;
+                    showMessage('Proposal refined and architecturally audited by AI. Review complete.', 'alert-success', formMessage);
+                } catch (error) {
+                    console.error("Refinement error:", error);
+                    showMessage(`AI Refinement failed: ${error.message.substring(0, 70)}...`, 'alert-danger', formMessage);
+                } finally {
+                    refineSummaryBtn.disabled = false;
+                    refineSummaryBtn.innerHTML = '<i class="bi bi-magic me-1"></i> ✨ Refine to Executive Summary (AI Audit)';
+                    summaryLoading.classList.add('d-none');
+                }
+            });
+
+            // LLM Feature 1: Internship Path Generator
+            generatePathBtn.addEventListener('click', async () => {
+                const techStack = techStackInput.value.trim();
+
+                if (techStack.length < 10) {
+                    projectOutput.classList.add('d-none');
+                    showMessage('Please enter a target technology stack (e.g., Rust and ZK Proofs).', 'alert-warning', formMessage);
+                    return;
+                }
+                
+                generatePathBtn.disabled = true;
+                generatePathBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status"></span>Architecting Path...';
+                projectLoading.classList.remove('d-none');
+                projectOutput.classList.add('d-none');
+
+                const systemPrompt = "You are a Senior Architect generating a project idea for a highly skilled intern. The project must be complex, innovative, and directly relevant to decentralized enterprise software. Generate one comprehensive project idea (Title and Description) and outline exactly 3 key milestones for a 3-month term. Output in clear Markdown format with headings and bullet points for readability.";
+                const userQuery = `Generate a 3-month Senior Internship project idea focusing on the following stack: ${techStack}`;
+                
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: { parts: [{ text: systemPrompt }] },
+                };
+                
+                try {
+                    const projectTextContent = await callGeminiApi(payload);
+                    projectText.textContent = projectTextContent;
+                    projectOutput.classList.remove('d-none');
+                    showMessage('Customized Internship Path Generated Successfully. Scroll down to review the outline.', 'alert-success', formMessage);
+                } catch (error) {
+                    console.error("Project generation error:", error);
+                    projectText.textContent = `Error generating project idea: ${error.message}`;
+                    projectOutput.classList.remove('d-none');
+                    showMessage(`Path Generation Failed: ${error.message.substring(0, 70)}...`, 'alert-danger', formMessage);
+                } finally {
+                    generatePathBtn.disabled = false;
+                    generatePathBtn.innerHTML = 'Generate Project & Learning Milestones';
+                    projectLoading.classList.add('d-none');
+                }
+            });
+            
+            // --- 4. Navigation & Auto-Hide Logic ---
+
+            function smoothScrollTo(targetY) {
+                const startY = window.scrollY || window.pageYOffset;
+                const distance = targetY - startY;
+                let startTime = null;
+
+                function step(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(1, timeElapsed / SCROLL_DURATION);
+                    const ease = progress < 0.5 ? 16 * progress * progress * progress * progress * progress : 1 + 16 * (--progress) * progress * progress * progress * progress;
+
+                    window.scrollTo(0, startY + distance * ease);
+
+                    if (timeElapsed < SCROLL_DURATION) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                        window.scrollTo(0, targetY);
+                        history.pushState(null, null, targetY === 0 ? '#' : '#' + (sections.find(s => s.element.offsetTop === targetY + NAVBAR_HEIGHT)?.id || 'hero'));
+                    }
+                }
+                window.requestAnimationFrame(step);
+            }
+
+            function setupNavigationListeners() {
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const navbarCollapse = document.getElementById('navbarNav');
+                        if (navbarCollapse.classList.contains('show')) {
+                             const bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+                             bsCollapse.hide();
+                        }
+                        
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetElement = document.getElementById(targetId);
+
+                        if (targetElement) {
+                            const targetY = targetElement.offsetTop - NAVBAR_HEIGHT;
+                            smoothScrollTo(targetY);
+                        } else if (targetId === 'hero') { 
+                             smoothScrollTo(0);
+                        }
+                    });
+                });
+            }
+
+            function updateActiveLink() {
+                const scrollPos = window.scrollY + NAVBAR_HEIGHT; 
+                let activeLinkFound = false;
+                
+                for (let i = sections.length - 1; i >= 0; i--) {
+                    const s = sections[i];
+                    // Check if scroll position is within the section bounds (+20 buffer)
+                    if (scrollPos >= s.element.offsetTop + 20) { 
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        document.querySelector(`a[href="#${s.id}"]`).classList.add('active');
+                        activeLinkFound = true;
+                        break;
+                    }
+                }
+                
+                // If no section is hit (i.e., at the very top of the page)
+                if (!activeLinkFound) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const heroLink = document.querySelector('a[href="#features"]'); // Highlight first nav item when at top
+                    if (heroLink) heroLink.classList.add('active');
+                }
+            }
+
+            function handleScroll() {
+                const currentScrollY = window.scrollY;
+
+                if (currentScrollY > lastScrollY && currentScrollY > NAVBAR_HEIGHT * 2) {
+                    // Scrolling down significantly, hide the navbar
+                    navbar.classList.add('nav-hidden');
+                } else if (currentScrollY < lastScrollY || currentScrollY < NAVBAR_HEIGHT) {
+                    // Scrolling up, or near the top, show the navbar
+                    navbar.classList.remove('nav-hidden');
+                }
+
+                lastScrollY = currentScrollY;
+            }
+            
+            let scrollTimeout;
+            window.addEventListener('scroll', () => {
+                handleScroll(); 
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveLink, 10); 
+            });
+
+
+            // --- 5. Complex Canvas Animation (Decentralized Data Flow) ---
+
+            const canvas = document.getElementById('hero-canvas');
+            const ctx = canvas.getContext('2d');
+            let nodes = [];
+            let animationFrameId;
+            let width, height;
+
+            // Configuration for the senior-level visualization
+            const config = {
+                numNodes: 60,
+                maxDistance: 120,
+                maxLines: 4,
+                nodeRadius: 2.5,
+                connectionColor: 'rgba(25, 103, 210, 0.5)', // Primary Blue
+                nodeColor: 'rgba(25, 103, 210, 1)', 
+                flowColor: 'rgba(255, 255, 255, 0.9)', // White data packets
+                flowSpeed: 0.05
+            };
+            
+            // Node Class
+            class Node {
+                constructor(x, y) {
+                    this.x = x;
+                    this.y = y;
+                    this.vx = (Math.random() - 0.5) * 0.5;
+                    this.vy = (Math.random() - 0.5) * 0.5;
+                    this.radius = config.nodeRadius;
+                    this.connections = []; 
+                }
+
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > width) this.vx *= -1;
+                    if (this.y < 0 || this.y > height) this.vy *= -1;
+                    
+                    this.vx *= 0.999; 
+                    this.vy *= 0.999;
+                    this.vx += (Math.random() - 0.5) * 0.01;
+                    this.vy += (Math.random() - 0.5) * 0.01;
+                }
+
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = config.nodeColor;
+                    ctx.fill();
+                }
+            }
+
+            // Flowing Data Packet Class
+            class DataPacket {
+                constructor(startNode, endNode) {
+                    this.start = startNode;
+                    this.end = endNode;
+                    this.t = 0; // travel time (0 to 1)
+                    this.radius = 1.2;
+                    this.color = config.flowColor;
+                }
+                
+                update() {
+                    this.t += config.flowSpeed;
+                    if (this.t > 1) this.t = 0;
+                }
+
+                draw() {
+                    const x = this.start.x + (this.end.x - this.start.x) * this.t;
+                    const y = this.start.y + (this.end.y - this.start.y) * this.t;
+
+                    ctx.beginPath();
+                    ctx.arc(x, y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+            }
+            
+            let dataPackets = [];
+
+            function resizeCanvas() {
+                width = canvas.width = canvas.clientWidth;
+                height = canvas.height = canvas.clientHeight;
+                initNodes(); 
+            }
+
+            function initNodes() {
+                nodes = [];
+                for (let i = 0; i < config.numNodes; i++) {
+                    const x = Math.random() * width;
+                    const y = Math.random() * height;
+                    nodes.push(new Node(x, y));
+                }
+                dataPackets = []; 
+            }
+
+            function connectNodes() {
+                for (let i = 0; i < nodes.length; i++) {
+                    const nodeA = nodes[i];
+                    let connectionCount = 0;
+
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const nodeB = nodes[j];
+                        const distance = Math.hypot(nodeA.x - nodeB.x, nodeA.y - nodeB.y);
+
+                        if (distance < config.maxDistance && connectionCount < config.maxLines) {
+                            // Draw connection line
+                            ctx.beginPath();
+                            ctx.moveTo(nodeA.x, nodeA.y);
+                            ctx.lineTo(nodeB.x, nodeB.y);
+                            const opacity = 1 - (distance / config.maxDistance);
+                            ctx.strokeStyle = `rgba(25, 103, 210, ${opacity * 0.4})`;
+                            ctx.lineWidth = 1;
+                            ctx.stroke();
+                            
+                            // Randomly spawn data packets on the line
+                            if (Math.random() < 0.005) {
+                                dataPackets.push(new DataPacket(nodeA, nodeB));
+                            }
+
+                            connectionCount++;
+                        }
+                    }
+                }
+                
+                if (dataPackets.length > 50) {
+                    dataPackets = dataPackets.slice(-50);
+                }
+            }
+            
+            function animate() {
+                // Clear the canvas with a slight fade effect
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'; // Keep white background, but subtle fade
+                ctx.fillRect(0, 0, width, height);
+
+                connectNodes();
+
+                // Update and draw nodes
+                for (const node of nodes) {
+                    node.update();
+                    node.draw();
+                }
+                
+                // Update and draw data packets
+                dataPackets = dataPackets.filter(packet => {
+                    packet.update();
+                    if (packet.t < 1) {
+                        packet.draw();
+                        return true;
+                    }
+                    return false; 
+                });
+
+                animationFrameId = requestAnimationFrame(animate);
+            }
+
+            function startCanvasAnimation() {
+                if (animationFrameId) {
+                    cancelAnimationFrame(animationFrameId);
+                }
+                resizeCanvas();
+                animate();
+            }
+
+            // --- 6. Initialization Function (Entry Point) ---
+
+            function initialize() {
+                // Initialize AOS for standard scroll-in effects
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                });
+                
+                setupNavigationListeners(); 
+                
+                // Start the complex canvas animation
+                window.addEventListener('resize', startCanvasAnimation);
+                startCanvasAnimation(); 
+                
+                // Initial call to set the active link and handle initial scroll position
+                updateActiveLink(); 
+
+                // API Key status log
+                if (!API_KEY) {
+                    console.error("Critical Error: The Gemini API Key is not available. LLM features will not work.");
+                } else {
+                    console.log("LLM API Key detected. Gemini features initialized.");
+                }
+            }
+
+            // Execute the application entry point
+            window.addEventListener('load', initialize);
+
+            /**
+             * Utility function to display form messages.
+             */
+            function showMessage(msg, type, element) {
+                element.classList.remove('d-none', 'alert-info', 'alert-success', 'alert-danger', 'alert-warning');
+                element.classList.add(type);
+                element.textContent = msg;
+                
+                setTimeout(() => {
+                    element.classList.add('d-none');
+                }, 5000);
+            }
+
+        })(); // End IIFE
+    </script>
+</body>
+</html>
